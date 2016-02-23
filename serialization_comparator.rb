@@ -38,34 +38,34 @@ end
 
 puts "Serialization speed test:"
 
-puts "YAML:"
+#Yaml
 time = benchmark_serialize("yaml.dat") do |file, object|
   file.puts YAML::dump(object)
   file.puts ""
 end
-puts "Time: #{time} sec"
+puts "YAML: #{time} sec"
 
-puts "JSON:"
+#Json
 time = benchmark_serialize("json.dat") do |file, object|
   file.puts JSON.dump(object)
 end
-puts "Time: #{time} sec"
+puts "JSON: #{time} sec"
 
-puts "OJ Json:"
+#OJ Json
 time = benchmark_serialize("oj.dat") do |file, object|
   file.puts Oj.dump(object)
 end
-puts "Time: #{time} sec"
+puts "OJ Json: #{time} sec"
 
-puts "Yail:"
+#Yail
 time = benchmark_serialize("yail.dat") do |file, object|
   file.puts Yajl::Encoder.encode(object)
 end
-puts "Time: #{time} sec"
+puts "Yail: #{time} sec"
 
-puts "Marshal:"
+#Marshal
 time = benchmark_serialize("marshal.dat") do |file, object|
   file.print Marshal::dump(object)
   file.print "---_---"
 end
-puts "Time: #{time} sec"
+puts "Marshal: #{time} sec"
